@@ -40,7 +40,7 @@ MAIN_MENU() {
 
       CUSTOMER_ID=$($PSQL "SELECT customer_id FROM customers WHERE phone='$CUSTOMER_PHONE'")
     else
-      IFS="|" read CUSTOMER_ID CUSTOMER_NAME < echo "$CUSTOMER"
+      IFS="|" read CUSTOMER_ID CUSTOMER_NAME <<< echo "$CUSTOMER"
     fi
 
     echo -e "\nWhat time would you like your $SERVICE_NAME, $CUSTOMER_NAME?"
